@@ -264,6 +264,9 @@ STATICFILES_BACKEND = (
     if not DEBUG
     else 'django.contrib.staticfiles.storage.StaticFilesStorage'
 )
+# Avoid runtime 500s when a stale template references a static asset missing from the manifest.
+# Whitenoise will serve the original path instead of raising ValueError.
+WHITENOISE_MANIFEST_STRICT = _env_bool('WHITENOISE_MANIFEST_STRICT', False)
 STORAGES = {
     'default': {
         'BACKEND': 'django.core.files.storage.FileSystemStorage',
