@@ -147,7 +147,6 @@ class BattleConsumer(AsyncWebsocketConsumer):
             with transaction.atomic():
                 match = (
                     BattleMatch.objects.select_for_update()
-                    .select_related('player_one', 'player_two', 'winner', 'challenge')
                     .get(id=match.id)
                 )
                 match, _ = reconcile_bot_match(match)
@@ -167,7 +166,6 @@ class BattleConsumer(AsyncWebsocketConsumer):
             try:
                 match = (
                     BattleMatch.objects.select_for_update()
-                    .select_related('player_one', 'player_two', 'winner', 'challenge')
                     .get(room_code=self.room_code)
                 )
             except BattleMatch.DoesNotExist:
@@ -240,7 +238,6 @@ class BattleConsumer(AsyncWebsocketConsumer):
             try:
                 match = (
                     BattleMatch.objects.select_for_update()
-                    .select_related('player_one', 'player_two', 'winner', 'challenge')
                     .get(room_code=self.room_code)
                 )
             except BattleMatch.DoesNotExist:
@@ -275,7 +272,6 @@ class BattleConsumer(AsyncWebsocketConsumer):
             try:
                 match = (
                     BattleMatch.objects.select_for_update()
-                    .select_related('player_one', 'player_two', 'winner', 'challenge')
                     .get(room_code=self.room_code)
                 )
             except BattleMatch.DoesNotExist:
@@ -326,7 +322,6 @@ class BattleConsumer(AsyncWebsocketConsumer):
             try:
                 match = (
                     BattleMatch.objects.select_for_update()
-                    .select_related('player_one', 'player_two', 'winner', 'challenge')
                     .get(room_code=self.room_code)
                 )
             except BattleMatch.DoesNotExist:

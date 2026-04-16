@@ -29,7 +29,6 @@ def _assign_match_challenge_if_needed(match):
         with transaction.atomic():
             locked_match = (
                 BattleMatch.objects.select_for_update()
-                .select_related('preferred_topic', 'challenge', 'player_one', 'player_two')
                 .get(id=match.id)
             )
             locked_match, _ = reconcile_bot_match(locked_match)
@@ -41,7 +40,6 @@ def _assign_match_challenge_if_needed(match):
     with transaction.atomic():
         locked_match = (
             BattleMatch.objects.select_for_update()
-            .select_related('preferred_topic', 'challenge', 'player_one', 'player_two')
             .get(id=match.id)
         )
         if locked_match.challenge_id is None and locked_match.status == BattleMatch.Status.LIVE:
@@ -271,7 +269,6 @@ class BattleMatchApiView(APIView):
                 with transaction.atomic():
                     locked_match = (
                         BattleMatch.objects.select_for_update()
-                        .select_related('player_one', 'player_two', 'winner', 'challenge')
                         .get(id=match.id)
                     )
                     match, _ = reconcile_bot_match(locked_match)
@@ -288,7 +285,7 @@ class BattleMatchApiView(APIView):
         if room_code and battle_action:
             with transaction.atomic():
                 match = get_object_or_404(
-                    BattleMatch.objects.select_for_update().select_related('player_one', 'player_two', 'winner', 'challenge'),
+                    BattleMatch.objects.select_for_update(),
                     room_code=room_code,
                 )
                 if not match.is_participant(request.user):

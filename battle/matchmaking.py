@@ -140,7 +140,6 @@ def find_or_create_match(user, topic_preference=None):
         with transaction.atomic():
             match = (
                 BattleMatch.objects.select_for_update()
-                .select_related('player_one__profile', 'preferred_topic')
                 .filter(id=match_id)
                 .first()
             )
