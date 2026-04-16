@@ -653,10 +653,69 @@ body.has-page-exit-control main.main-content {
    ============================================ */
 
 @media (max-width: 991.98px) {
+    .navbar-aq {
+        padding: 0.55rem 0;
+    }
+
+    .navbar-aq .navbar-brand {
+        font-size: 1.18rem;
+    }
+
+    .navbar-aq .navbar-brand .brand-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 0.92rem;
+    }
+
+    .navbar-aq .navbar-toggler {
+        padding: 0.42rem 0.58rem;
+        border: 1px solid rgba(255, 255, 255, 0.34) !important;
+        border-radius: 0.85rem;
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    .navbar-aq .navbar-toggler:focus {
+        box-shadow: var(--aq-focus-ring);
+    }
+
+    .navbar-aq .navbar-toggler-icon {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
     .navbar-aq .navbar-collapse {
         padding-top: 1rem;
-        border-top: 1px solid var(--aq-nav-border);
         margin-top: 0.75rem;
+        border: 1px solid var(--aq-nav-border);
+        border-radius: 1rem;
+        background: rgba(11, 23, 44, 0.72);
+        backdrop-filter: blur(8px);
+        padding: 0.9rem;
+    }
+
+    .navbar-aq .navbar-nav {
+        gap: 0.35rem;
+    }
+
+    .navbar-aq .nav-link {
+        padding: 0.66rem 0.85rem !important;
+        border-radius: 0.8rem;
+        font-size: 0.98rem;
+    }
+
+    .navbar-aq .nav-link::after {
+        display: none;
+    }
+
+    .theme-toggle-btn {
+        margin-top: 0.2rem;
+        width: auto;
+    }
+
+    .navbar-aq .btn-signup {
+        margin-top: 0.25rem;
+        width: auto;
+        padding: 0.58rem 1.3rem;
     }
 
     main.main-content {
