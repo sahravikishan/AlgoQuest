@@ -3434,7 +3434,6 @@ def submit_attempt_view(request, slug):
                 with transaction.atomic():
                     locked_match = (
                         battle_match.__class__.objects.select_for_update()
-                        .select_related('player_one', 'player_two', 'winner', 'challenge')
                         .get(id=battle_match.id)
                     )
                     locked_match, challenge_advanced = register_bot_player_solve(locked_match, attempt)
