@@ -2,6 +2,12 @@
 
 AlgoQuest is a full-stack Django platform for algorithm learning, competitive real-time battles, gamification, and user performance analytics.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20App-2ea44f?style=for-the-badge)](https://algoquest-web.onrender.com)
+![Django](https://img.shields.io/badge/Django-5.x-0C4B33?style=for-the-badge&logo=django)
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=ffdd54)
+![DRF](https://img.shields.io/badge/DRF-API-red?style=for-the-badge)
+![Channels](https://img.shields.io/badge/Channels-WebSocket-1f6feb?style=for-the-badge)
+
 ## Live Demo
 - Render deployment: [https://algoquest-web.onrender.com](https://algoquest-web.onrender.com)
 
