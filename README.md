@@ -2,6 +2,53 @@
 
 AlgoQuest is a full-stack Django platform for algorithm learning, competitive real-time battles, gamification, and user performance analytics.
 
+## Live Demo
+- Render deployment: [https://algoquest-web.onrender.com](https://algoquest-web.onrender.com)
+
+## UI Screenshots
+Screenshots captured from the live deployment.
+
+### Home
+![AlgoQuest Home UI](docs/screenshots/home.png)
+
+### Login
+![AlgoQuest Login UI](docs/screenshots/login.png)
+
+### Signup
+![AlgoQuest Signup UI](docs/screenshots/signup.png)
+
+### Challenges
+![AlgoQuest Challenges UI](docs/screenshots/challenges.png)
+
+### Leaderboard
+![AlgoQuest Leaderboard UI](docs/screenshots/leaderboard.png)
+
+## User Manual (Step-by-Step)
+This section is for regular users (not admin).
+
+1. Open the app: [https://algoquest-web.onrender.com](https://algoquest-web.onrender.com)
+2. Create your account:
+   - Go to `/accounts/signup/`
+   - Enter username, email, and password
+   - Submit signup form
+3. Login to your account:
+   - Go to `/accounts/login/`
+   - Enter username/password
+4. Visit your dashboard:
+   - Open `/users/dashboard/` to view activity and progress
+5. Start solving challenges:
+   - Open `/challenges/`
+   - Select a challenge and submit your solution
+6. Join real-time battles:
+   - Open `/battle/`
+   - Join or start a battle room and compete live
+7. Track ranking:
+   - Open `/leaderboard/`
+   - Check your position on global/weekly boards
+8. Manage your profile:
+   - Open `/users/profile/`
+   - Update profile details and review your performance
+
 ## Stack
 - Backend: Django 5
 - APIs: Django REST framework
@@ -55,7 +102,6 @@ python manage.py seed_data
 ```
 
 ## Database Configuration
-
 Local development can continue using SQLite by leaving `DJANGO_USE_POSTGRES=False`.
 
 For PostgreSQL, use either:
@@ -79,8 +125,7 @@ DATABASE_URL=postgresql://algoquest_user:replace-with-db-password@127.0.0.1:5432
 For production, PostgreSQL is the recommended database. On Render, set `DATABASE_URL` from your Render PostgreSQL connection string.
 
 ## Render Deployment
-
-This repository includes both [build.sh](c:/Users/Hp/DjangoProjects/AlgoQuest/build.sh) and [render.yaml](c:/Users/Hp/DjangoProjects/AlgoQuest/render.yaml) for Render deployment.
+This repository includes both `build.sh` and `render.yaml` for Render deployment.
 
 The easiest path is using a Render Blueprint:
 
@@ -110,7 +155,7 @@ DJANGO_SECRET_KEY=replace-with-a-new-secret
 DATABASE_URL=postgresql://...
 ```
 
-Render automatically provides `RENDER` and `RENDER_EXTERNAL_HOSTNAME`, and this project now uses those values to derive safe production defaults for `DEBUG`, `ALLOWED_HOSTS`, and `CSRF_TRUSTED_ORIGINS` when you do not set them manually.
+Render automatically provides `RENDER` and `RENDER_EXTERNAL_HOSTNAME`, and this project uses those values to derive safe production defaults for `DEBUG`, `ALLOWED_HOSTS`, and `CSRF_TRUSTED_ORIGINS` when you do not set them manually.
 
 Notes:
 - Static files are served by WhiteNoise in production.
@@ -118,7 +163,6 @@ Notes:
 - The default SQLite database is only for local development.
 
 ## Run Servers
-
 ### HTTP development server
 ```bash
 python manage.py runserver
